@@ -8,7 +8,7 @@ const Sobre: React.FC = () => {
     <div>
       <NextSeo 
       title='Sobre | Summoner Statics' 
-      description='Then with a short description here.'
+      description='Sobre a Summoner Statics'
       />
       <Header />
       <main>

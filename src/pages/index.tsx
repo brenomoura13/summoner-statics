@@ -9,7 +9,7 @@ const Home: React.FC = () => {
     <div>
       <NextSeo 
       title='Home | Summoner Statics' 
-      description='Then with a short description here.'
+      description='Home page da Summoner Statics.'
       />
       <Header />
       <Search />
