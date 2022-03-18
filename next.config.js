@@ -7,8 +7,8 @@ const nextConfig = {
     includePaths: [path.join(__dirname, 'styles')],
   },
   images: {
-    domains: ['ddragon.leagueoflegends.com'],
-  }, 
+    domains: ['ddragon.leagueoflegends.com', 'opgg-static.akamaized.net'],
+  },
 }
 
 module.exports = nextConfig

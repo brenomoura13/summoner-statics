@@ -1,38 +1,110 @@
 $font: Lato, sans-serif;
 $rosa: #FF2254;
 $azul: #05C9FF;
+$branco: #F7F7F7;
+$preto: #1a1a1a;
+$text-shadow: 0px 1px 0px $preto;
 
 .summoner {
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    flex-wrap: wrap;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  color: $branco;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  position: absolute;
+  top: 50%;
+  text-align: center;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: $font;
+  text-shadow: $text-shadow;
+  &:hover {
+    cursor: default;
+  }
 }
 
 .summoner__icon {
-    margin: 6%;
+  width: 120px;
+  height: 120px;
+  position: relative;
+  transition: all 0.3s ease;
+  &:hover {
+    transform: scale(0.95);
+  }
 }
 
 .summoner__name {
-    font-size: 1.5rem;
-    text-align: center;
-    margin-bottom: 1rem;
+  font-size: 1.5rem;
+  margin: 1rem;   
+  b {
+    color: $rosa;
+    transition: color 0.5s;
+    &:hover {
+      color: $azul;
+    }
+  }
 }
 
-.summoner__name b {
-    color: $rosa
+.summoner__tier {
+  width: 120px;
+  font-size: 0.7rem;
+  clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
+  font-weight: bold;
+  line-height: 1.2rem;
+  margin: -5% auto 2% auto;
+  background: $azul;
+  transition: background 0.5s;
+  &:hover {
+    background: $rosa;
+  }
 }
 
 .summoner__level {
-    font-size: 1.2rem;
-    text-align: center;
-    margin-bottom: 1rem;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  b {
+    color: $azul;
+    transition: color 0.5s;
+    &:hover {
+      color: $rosa;
+    }
+  }
 }
 
-.summoner__level b{
-    color: $azul
+.summoner__button {
+  color: $branco;
+  align-items: center;
+  background: $rosa;
+  border-radius: 8px;
+  border-width: 0;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .1),0 3px 6px rgba(0, 0, 0, .05);
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-flex;
+  flex-direction: column;
+  font-size: 18px;
+  justify-content: center;
+  line-height: 1;
+  margin: 5% 0;
+  outline: none;
+  overflow: hidden;
+  padding: 5%;
+  text-decoration: none;
+  text-transform: lowercase;
+  transform: translate3d(2, 0, 0);
+  transition: all 0.5s;
+  vertical-align: baseline;
+  white-space: nowrap;
+  &:hover {
+    box-shadow: rgba(0, 1, 0, .2) 0 2px 8px;
+    background-color: $azul;
+    opacity: .85;
+    transform: scale(0.95);
+  }
+  &:active {
+    outline: 0;
+  }
+  &:focus {
+    box-shadow: rgba(0, 0, 0, .5) 0 0 0 3px;
+  }
 }
