@@ -1,7 +1,4 @@
-$font: Lato, sans-serif;
-$rosa: #FF2254;
-$azul: #05C9FF;
-$branco: #f7f7f7;
+@import './theme.scss';
 
 .searcher {
 	position: absolute;
@@ -12,7 +9,7 @@ $branco: #f7f7f7;
 
 .searcher__box {	
 	input[type="text"] {
-		font-family: $font;
+		font-family: $lato;
 		border: none;
 		background: none;
 		z-index: 1;

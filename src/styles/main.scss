@@ -1,0 +1,24 @@
+@import './theme.scss';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+  
+
+body {
+    font-family: $montserrat;
+    background: $preto;
+    color: $branco;
+}
+
+.negrito {
+    color: $rosa;
+    font-weight: bold;
+    transition: all 0.2s;
+    &:hover {
+        cursor: normal;
+        transform: scale(0.9)
+    }
+}

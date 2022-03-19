@@ -1,0 +1,18 @@
+@import './theme.scss';
+
+.rodape {
+    background: $branco;
+    bottom:0;
+    left:0;
+    height: 20px;
+    padding: 3% 0;
+    flex-shrink: 1;
+    width: 100%;
+}
+
+.rodape__texto {
+    color: $preto;
+    font-size: 0.8rem;
+    text-transform: lowercase;
+    text-align: center;
+}

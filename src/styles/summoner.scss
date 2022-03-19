@@ -1,14 +1,10 @@
-$font: Lato, sans-serif;
-$rosa: #FF2254;
-$azul: #05C9FF;
-$branco: #F7F7F7;
-$preto: #1a1a1a;
-$text-shadow: 0px 1px 0px $preto;
+@import './theme.scss';
 
 .summoner {
   color: $branco;
   display:flex;
   flex-direction: column;
+  font-family: $lato;
   align-items: center;
   flex-wrap: wrap;
   position: absolute;
@@ -16,7 +12,6 @@ $text-shadow: 0px 1px 0px $preto;
   text-align: center;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-family: $font;
   text-shadow: $text-shadow;
   &:hover {
     cursor: default;

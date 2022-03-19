@@ -5,7 +5,9 @@ import React from 'react'
 const Header: React.FC = () => {
   return (
     <header className='cabecalho'>
-    <Image src="/assets/imagens/logo.png" alt="Logo do site"  width={'128px'} height={'128px'} className="cabecalho__logo"/>
+    <div className='cabecalho__logo'>
+      <Image src="/assets/imagens/logo.png" alt="Logo do site"  width={'128px'} height={'128px'}/>
+    </div>
     <nav className='cabecalho__nav'>
       <ul className='cabecalho__lista'>
         <li className='cabecalho__lista--linha'>

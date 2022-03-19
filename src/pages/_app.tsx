@@ -1,16 +1,14 @@
 import { AppProps } from 'next/app'
-import { ThemeProvider } from 'styled-components'
-import GlobalStyle  from '../styles/global'
-import theme from '../styles/theme'
-import '../styles/Search/search.scss'
-import '../styles/Summoner/summoner.scss'
+import '../styles/theme.scss'
+import '../styles/main.scss'
+import '../styles/cabecalho.scss'
+import '../styles/rodape.scss'
+import '../styles/searcher.scss'
+import '../styles/summoner.scss'
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
       <Component {...pageProps} /> 
-    </ThemeProvider>
   )
 }
 
