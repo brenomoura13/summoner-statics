@@ -9,14 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@types/styled-components": "^5.1.24",
     "next": "12.1.0",
     "next-seo": "^5.1.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "sass": "^1.49.9",
-    "sharp": "^0.30.2",
-    "styled-components": "^5.3.3"
+    "sharp": "^0.30.2"
   },
   "devDependencies": {
     "@types/node": "^17.0.21",
