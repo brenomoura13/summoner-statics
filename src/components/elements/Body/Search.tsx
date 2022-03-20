@@ -4,14 +4,22 @@ const Search: React.FC = () => {
   const [currentName, setCurrentName] = useState('')
   const url = `/summoner/${currentName}`
   return (
-    <div className="searcher">
-      <form action={url} method="post" className='searcher__box'>
-      <input type="text" placeholder="Procurar invocador..." maxLength={16} onChange={event => setCurrentName(event.target.value)} />
-      <span></span>
+    <section className="searcher">
+      <form action={url} method="post">
+        <input 
+          type="search" 
+          className="searcher__input" 
+          maxLength={16}
+          placeholder="procurar pelo invocador..."
+          onChange={event => setCurrentName(event.target.value)}
+        />
+        <span className="searcher__button">
+          <span className="searcher__icon"></span>
+        </span>
       </form>
-    </div>
-
+    </section>
   )
 }
+
 
 export default Search

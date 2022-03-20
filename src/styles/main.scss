@@ -1,24 +1,34 @@
 @import './theme.scss';
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box
 }
-  
 
-body {
-    font-family: $montserrat;
-    background: $preto;
-    color: $branco;
+
+body,html {
+  font-family: $montserrat;
+  background: $preto;
+  color: $branco;
+  width: 100%;
+  height: 100%;
 }
 
 .negrito {
-    color: $rosa;
-    font-weight: bold;
-    transition: all 0.2s;
-    &:hover {
-        cursor: normal;
-        transform: scale(0.9)
-    }
+  color: $rosa;
+  font-weight: bold;
+  transition: $transition;
+  &:hover {
+    cursor: normal;
+    transform: scale(0.9)
+  }
+}
+
+// cabecalho e rodape responsivo com o conteudo
+.summoner_statics {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }

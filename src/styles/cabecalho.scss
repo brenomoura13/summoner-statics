@@ -1,47 +1,47 @@
 @import './theme.scss';
 
 .cabecalho {
-    background: $branco;
-    display: flex;
-    justify-content: space-around;
-    top: 0;
-    width: 100%
-  }
-  
-  .cabecalho__logo {
-    margin: 5% 0;
-    width: 128px;
-    height: 128px;
-  }
-  
-  .cabecalho__nav {
-    align-items: center;
-    display: flex;
-    justify-content: right;
-    text-transform: lowercase;
-    width: 50%
-  }
-  
-  .cabecalho__lista {
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    list-style:none;
-  }
-  
-  .cabecalho__lista--linha {
-    padding-left: 20%;
-  }
-  
-  .cabecalho__lista--link {
-    color: $preto;
-    font-size: 1.2rem;
+  background: $branco;
+  display: flex;
+  justify-content: space-around;
+  top: 0;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.cabecalho__logo {
+  margin: 2% 0;
+  width: 128px;
+  height: 128px;
+}
+
+.cabecalho__nav {
+  align-items: center;
+  display: flex;
+  justify-content: right;
+  text-transform: lowercase;
+  width: 50%
+}
+
+.cabecalho__lista {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  list-style:none;
+}
+
+.cabecalho__lista--linha {
+  padding-left: 20%;
+}
+
+.cabecalho__lista--link {
+  color: $preto;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: $transition;
+  &:hover {
+    color: $rosa;
     text-decoration: none;
-    transition: all 0.1s;
-    &:hover {
-        color: $rosa;
-        font-size: 1.3rem;
-        text-decoration: none;
-    }
   }
+}

@@ -5,17 +5,18 @@ import Header from '../components/elements/Header/Header'
 
 const Sobre: React.FC = () => {
   return (
-    <div>
+    <section className='summoner_statics'>
       <NextSeo 
       title='Sobre | Summoner Statics' 
       description='Sobre a Summoner Statics'
       />
       <Header />
-      <main>
-        <h1>Sobre</h1>
-      </main>
+      <section className="about">
+        <h1 className="about__title">Sobre</h1>
+        <p className="about__text">Criado com ♥ para todos.</p>
+      </section>
       <Footer />
-    </div>
+    </section>
   )
 }
 

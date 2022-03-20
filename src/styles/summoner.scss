@@ -2,17 +2,14 @@
 
 .summoner {
   color: $branco;
-  display:flex;
-  flex-direction: column;
   font-family: $lato;
-  align-items: center;
-  flex-wrap: wrap;
-  position: absolute;
-  top: 50%;
-  text-align: center;
-  left: 50%;
-  transform: translate(-50%, -50%);
   text-shadow: $text-shadow;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  flex-grow: 1;
   &:hover {
     cursor: default;
   }
@@ -22,10 +19,7 @@
   width: 120px;
   height: 120px;
   position: relative;
-  transition: all 0.3s ease;
-  &:hover {
-    transform: scale(0.95);
-  }
+  transition: $transition;
 }
 
 .summoner__name {
@@ -33,7 +27,7 @@
   margin: 1rem;   
   b {
     color: $rosa;
-    transition: color 0.5s;
+    transition: $transition;
     &:hover {
       color: $azul;
     }
@@ -41,14 +35,15 @@
 }
 
 .summoner__tier {
+  text-align: center;
   width: 120px;
   font-size: 0.7rem;
   clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
   font-weight: bold;
   line-height: 1.2rem;
-  margin: -5% auto 2% auto;
+  margin: -1% auto;
   background: $azul;
-  transition: background 0.5s;
+  transition: $transition;
   &:hover {
     background: $rosa;
   }
@@ -59,7 +54,7 @@
   margin-bottom: 1rem;
   b {
     color: $azul;
-    transition: color 0.5s;
+    transition: $transition;
     &:hover {
       color: $rosa;
     }
@@ -83,18 +78,15 @@
   margin: 5% 0;
   outline: none;
   overflow: hidden;
-  padding: 5%;
+  padding: 2%;
   text-decoration: none;
   text-transform: lowercase;
-  transform: translate3d(2, 0, 0);
-  transition: all 0.5s;
-  vertical-align: baseline;
+  transition: $transition;
   white-space: nowrap;
   &:hover {
     box-shadow: rgba(0, 1, 0, .2) 0 2px 8px;
     background-color: $azul;
     opacity: .85;
-    transform: scale(0.95);
   }
   &:active {
     outline: 0;
