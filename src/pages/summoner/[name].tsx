@@ -158,7 +158,7 @@ const Summoner = ({ summoner, summonerDetails, summonerMasterys } : summonerProp
           </div>
           <div className="summoner__championsMasterys">
             {summonerMasterys.map((champion: any) => (
-              <div className="summoner__championsMasterys--champion">
+              <div className="summoner__championsMasterys--champion" key={champion}>
                 <div className="summoner__championsMasterys--champion--icon">
                   <Image
                   src={`https://raw.communitydragon.org/json/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/${champion.championId}.png`}
@@ -197,7 +197,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       }
     }
   }
-  var summonerId = summoner.id
+  var summonerId: string = summoner.id
+  var summonerPuuid: string = summoner.puuid
   var filterBySoloQueue = []
   if (summonerId) {
     var requestSumDetailsReq = await fetch(`https://br1.api.riotgames.com/lol/league/v4/entries/by-summoner/${summonerId}?api_key=${apiKey}`)
@@ -213,6 +214,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         lastPlayTime: obj.lastPlayTime
       }
     })
+    var matchesHistory = await fetch (`https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/${summonerPuuid}/ids?start=0&count=5&api_key=${apiKey}`)
+    var matchesHistoryRes = await matchesHistory.json()
   }
   return {
     props: {
