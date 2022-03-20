@@ -1,0 +1,107 @@
+@import '../theme.scss';
+
+.summoner__infos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5%;
+}
+
+.summoner__infos--details {
+  width: 120px;
+  height: 190px;
+  margin: 0 auto;
+}
+
+.summoner__icon {
+  width: 120px;
+  height: 120px;
+  position: relative;
+  transition: $transition;
+}
+
+.summoner__level {
+  background: $rosa;
+  border-radius: 100%;
+  font-size: 0.8rem;
+  font-weight: bolder;
+  margin: 0 auto;
+  padding: 5% 5%;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  z-index: 2;
+  b {
+    color: $azul;
+    transition: $transition;
+    &:hover {
+      color: $azul;
+    }
+  }
+}
+
+.summoner__tier {
+  width: 100%;
+  position: absolute;
+  bottom: -14%;
+  background: $rosa;
+  font-size: 0.7rem;
+  font-weight: bold;
+  line-height: 1.2rem;
+  margin: -5% auto;
+  padding: 2px;
+  transition: $transition;
+  text-align: center;
+  z-index: 1;
+}
+
+.summoner__tier--details{
+  display: block;
+}
+
+.summoner__name {
+  font-size: 0.9rem;
+  margin: 18% auto 0 auto;
+  text-align: center;
+  b {
+    color: $rosa;
+    transition: $transition;
+    &:hover {
+      color: $azul;
+    }
+  }
+}
+
+.summoner__championsMasterys {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+.summoner__championsMasterys--champion {
+  margin: 2%;
+}
+
+.summoner__championsMasterys--champion--icon {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  margin-bottom: 2%;
+}
+
+.summoner__championsMasterys--champion--level {
+  position: absolute;
+  width: 30px;
+  bottom: -15%;
+  right: -15%;
+  margin: 0 auto;
+}
+
+.summoner__championsMasterys--champion--points {
+  font-size: 0.5rem;
+  margin: 0 auto;
+  text-align: center;
+}

@@ -5,7 +5,7 @@ import Image from "next/image";
 import Footer from "../../components/elements/Footer/Footer";
 import Header from "../../components/elements/Header/Header";
 import React from "react";
-import Link from "next/link";
+import Search from "../../components/elements/Body/Search";
 
 const apiKey = process.env.RIOT_KEY
 
@@ -48,12 +48,13 @@ const Summoner = ({ summoner, summonerDetails, summonerMasterys } : summonerProp
     switch (summoner.status.status_code) {
     case 404:
     return (
-      <>
+      <section className="summoner_statics">
         <NextSeo
         title="Não encontrado | Summoner Statics"
         description='Estatísticas do invocador.'
         />
         <Header />
+        <Search />
         <div className="summoner">
           <div className="summoner__icon">
             <Image 
@@ -63,23 +64,21 @@ const Summoner = ({ summoner, summonerDetails, summonerMasterys } : summonerProp
               height={"128px"}
             />
           </div>
-          <h1 className="summoner__name">Invocador não foi encontrado <b>:(</b></h1>
-          <Link href={`/`} passHref>
-            <button className="summoner__button">Voltar</button>
-          </Link>
+          <h1 className="summoner__text">Invocador não foi encontrado <b>:(</b></h1>
         </div>
        
         <Footer />
-      </>
+      </section>
     )
     case 403:
       return (
-        <>
+        <section className="summoner_statics">
         <NextSeo
         title="Não encontrado | Summoner Statics"
         description='Estatísticas do invocador.'
         />
         <Header />
+        <Search />
         <div className="summoner">
           <div className="summoner__icon">
             <Image 
@@ -89,13 +88,10 @@ const Summoner = ({ summoner, summonerDetails, summonerMasterys } : summonerProp
               height={"128px"}
             />
           </div>
-          <h1 className="summoner__name">Aplicação <b>não</b> conectada à API da Riot Gomes!</h1>
-          <Link href={`/`} passHref>
-            <button className="summoner__button">Voltar</button>
-          </Link>
+          <h1 className="summoner__text">Aplicação <b>não</b> conectada à API da Riot Gomes!</h1>
         </div>
         <Footer />
-      </>
+      </section>
       )
     }
   }
@@ -111,7 +107,7 @@ const Summoner = ({ summoner, summonerDetails, summonerMasterys } : summonerProp
   let summonerWinRate: number = ((summonerWins / (summonerWins + summonerLosses)) * 100)
 
   return (
-    <>
+    <section className="summoner_statics">
       <NextSeo
       title={summonerName}
       titleTemplate="%s | Summoner Statics"
@@ -119,55 +115,74 @@ const Summoner = ({ summoner, summonerDetails, summonerMasterys } : summonerProp
       />
       <Header />
       <div className="summoner">
-        <div className="summoner__icon"
-        style={{
-          background: `no-repeat center/85% url(http://ddragon.leagueoflegends.com/cdn/12.5.1/img/profileicon/${summonerIcon}.png)`,
-          backgroundSize:`85%`
-        }}>
-          {summonerTier === 'UNRANKED' ? (
-            ''
-          ) : (
-            <Image
-              src={`https://opgg-static.akamaized.net/images/borders2/${summonerTier.toLowerCase()}.png`}
-              alt="Borda do Elo"
-              width={'120px'}
-              height={'120px'}
-            />
-          )}
+      <Search />
+        <div className="summoner__infos">
+          <div className="summoner__infos--details">
+            <div className="summoner__icon"
+            style={{
+              background: `no-repeat center/85% url(http://ddragon.leagueoflegends.com/cdn/12.5.1/img/profileicon/${summonerIcon}.png)`,
+              backgroundSize:`85%`
+            }}>
+              <h2 className="summoner__level">{ summonerLevel }</h2>
+              <h3 className="summoner__tier">
+              {summonerTier === 'UNRANKED'
+                ? 'UNRANKED'
+                : summonerTier +
+                  ' ' +
+                  (summonerTier === ('CHALLENGER' || 'GRANDMASTER' || 'MASTER')
+                    ? ''
+                    : summonerRank
+                  )}
+              <h4 className="summoner__tier--details">
+                {summonerTier === 'UNRANKED' ? "" 
+                :("LP: " + summonerLeaguePoints + " - WR: " + summonerWinRate.toFixed(2) + "%")}
+              </h4>
+              </h3>
+                {summonerTier === 'UNRANKED' ? (
+                <Image
+                  src={`/assets/imagens/unranked.png`}
+                  alt="Borda do Elo"
+                  width={'120px'}
+                  height={'120px'}
+                />
+                ) : (
+                  <Image
+                    src={`https://opgg-static.akamaized.net/images/borders2/${summonerTier.toLowerCase()}.png`}
+                    alt="Borda do Elo"
+                    width={'120px'}
+                    height={'120px'}
+                  />
+                )}
+              <h1 className="summoner__name">{ summonerName }</h1>
+            </div>
+          </div>
+          <div className="summoner__championsMasterys">
+            {summonerMasterys.map((champion: any) => (
+              <div className="summoner__championsMasterys--champion">
+                <div className="summoner__championsMasterys--champion--icon">
+                  <Image
+                  src={`https://raw.communitydragon.org/json/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/${champion.championId}.png`}
+                  alt="Borda do Elo"
+                  width={'120px'}
+                  height={'120px'}
+                  />
+                  <div className="summoner__championsMasterys--champion--level">
+                    <Image 
+                    src= {`https://raw.communitydragon.org/latest/game/assets/ux/mastery/mastery_icon_${champion.championLevel}.png`}
+                    alt= "Nivel da maestria"
+                    width={'120px'}
+                    height={'120px'}
+                    />
+                  </div>
+                </div>           
+              <h2 className="summoner__championsMasterys--champion--points">{ champion.championPoints.toLocaleString('pt-BR') }</h2>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="summoner__tier">
-          {summonerTier === 'UNRANKED'
-            ? 'UNRANKED'
-            : summonerTier +
-              ' ' +
-              (summonerTier === ('CHALLENGER' || 'GRANDMASTER' || 'MASTER')
-                ? ''
-                : summonerRank
-              )}
-        <div className="summoner__tier--subinfo">
-        {summonerTier === 'UNRANKED' ? "" 
-        :("LP: " + summonerLeaguePoints + " - WR: " + summonerWinRate.toFixed(2) + "%")}
-        </div>
-        </div>
-        <h1 className="summoner__name"><b>Invocador:</b> { summonerName } </h1>
-        <h2 className="summoner__level"><b>Level</b>: { summonerLevel }</h2>      
-          {summonerMasterys.map((champion: any) => (
-            <>
-              <Image
-              src={`https://raw.communitydragon.org/json/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/${champion.championId}.png`}
-              alt="Borda do Elo"
-              width={'120px'}
-              height={'120px'}
-            />
-            <h3>{ champion.championPoints }</h3>
-            </>
-          ))}        
-        <Link href={`/`} passHref>
-          <button className="summoner__button">Voltar</button>
-        </Link>
       </div>
       <Footer />
-    </>
+    </section>
   )
 }
 

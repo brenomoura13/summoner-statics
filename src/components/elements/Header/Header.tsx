@@ -6,7 +6,7 @@ const Header: React.FC = () => {
   return (
     <header className='cabecalho'>
     <div className='cabecalho__logo'>
-      <Image src="/assets/imagens/logo.png" alt="Logo do site"  width={'128px'} height={'128px'}/>
+      <Image src="/assets/imagens/logo.png" alt="Logo do site"  width={'512px'} height={'512px'}/>
     </div>
     <nav className='cabecalho__nav'>
       <ul className='cabecalho__lista'>

@@ -3,15 +3,17 @@
 .rodape {
     display: flex;
     justify-content: space-around;
+    align-items: center;
     background: $branco;
-    padding: 3% 0;
     flex-shrink: 0;
     width: 100%;
+    height: 50px;
+    vertical-align: middle;
 }
 
 .rodape__texto {
     color: $preto;
     font-size: 0.8rem;
     text-transform: lowercase;
-    text-align: center;
+    vertical-align: middle;
 }

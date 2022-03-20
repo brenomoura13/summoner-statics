@@ -12,8 +12,8 @@ const Sobre: React.FC = () => {
       />
       <Header />
       <section className="about">
-        <h1 className="about__title">Sobre</h1>
-        <p className="about__text">Criado com ♥ para todos.</p>
+        <h1 className="about__title">summoner statics</h1>
+        <p className="about__text">criado com <b className='negrito'>♥</b> para todos</p>
       </section>
       <Footer />
     </section>

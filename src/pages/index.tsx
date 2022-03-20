@@ -1,5 +1,6 @@
 import { NextSeo } from 'next-seo'
 import React from 'react'
+import Jinx from '../components/elements/Body/Jinx'
 import Search from '../components/elements/Body/Search'
 import Footer from '../components/elements/Footer/Footer'
 import Header from '../components/elements/Header/Header'
@@ -13,6 +14,7 @@ const Home: React.FC = () => {
       />
       <Header />
       <Search />
+      <Jinx />
       <Footer />
     </section>
   )
