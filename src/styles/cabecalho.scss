@@ -16,23 +16,21 @@
 }
 
 .cabecalho__nav {
-  align-items: center;
-  display: flex;
-  justify-content: right;
-  text-transform: lowercase;
-  width: 50%
+  width: 10%;
+  margin: auto 0;
 }
 
 .cabecalho__lista {
+  width: 100%;
   align-items: center;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   list-style:none;
 }
 
 .cabecalho__lista--linha {
-  padding-left: 20%;
+  margin-left: 15%;
 }
 
 .cabecalho__lista--link {

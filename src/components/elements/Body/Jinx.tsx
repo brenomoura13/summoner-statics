@@ -8,8 +8,8 @@ const Jinx: React.FC = () => {
         <Image 
         src='/assets/imagens/jinx.png' 
         alt='jinx'
-        width={'1024px'}
-        height={'1308px'}
+        width={'800px'}
+        height={'767px'}
         />
       </div>
     </figure>

@@ -1,4 +1,4 @@
-import { AppProps } from 'next/app'
+import type { AppProps } from 'next/app'
 import '../styles/theme.scss'
 import '../styles/main.scss'
 import '../styles/cabecalho.scss'
@@ -9,10 +9,8 @@ import '../styles/Summoner/summoner-infos.scss'
 import '../styles/sobre.scss'
 import '../styles/jinx.scss'
 
-const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
-  return (
-      <Component {...pageProps} /> 
-  )
+const MyApp: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => {
+  return <Component {...pageProps} />
 }
 
 export default MyApp
