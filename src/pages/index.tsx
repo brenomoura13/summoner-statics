@@ -7,7 +7,7 @@ import Header from '../components/elements/Header/Header'
 
 const Home: React.FC = () => {
   return (
-    <section className='summoner_statics'>
+    <section className='summoner__statics'>
       <NextSeo 
       title='Home | Summoner Statics' 
       description='Home page da Summoner Statics.'

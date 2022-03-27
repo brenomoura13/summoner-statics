@@ -1,12 +1,14 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/jsx-key */
 import { GetServerSideProps } from "next"
 import Image from "next/image";
 import Footer from "../../components/elements/Footer/Footer";
 import Header from "../../components/elements/Header/Header";
-import React from "react";
+import React, { useEffect } from "react";
 import Search from "../../components/elements/Body/Search";
 import { NextSeo } from "next-seo"
 import { getSummoner, getSummonerChampionsMasterys, getSummonerDetails, getSummonerMatches } from "../../api/summoner";
+import getLatestLolVersion from "../../api/version";
 
 interface summoner {
   id: string;
@@ -47,7 +49,7 @@ const Summoner = ({ summoner, summonerDetails, summonerMasterys } : summonerProp
     switch (summoner.status.status_code) {
     case 404:
     return (
-      <section className="summoner_statics">
+      <section className="summoner__statics">
         <NextSeo
         title="Não encontrado | Summoner Statics"
         description='Estatísticas do invocador.'
@@ -55,46 +57,50 @@ const Summoner = ({ summoner, summonerDetails, summonerMasterys } : summonerProp
         <Header />
         <Search />
         <div className="summoner">
-          <div className="summoner__icon">
-            <Image 
-              src={`/assets/imagens/not-found.webp`} 
-              alt="Icone do invocador" 
-              width={"128px"}
-              height={"128px"}
-            />
+          <div className="summoner__infos">
+            <div className="summoner__icon">
+              <Image 
+                src={`/assets/imagens/poro-cry.webp`} 
+                alt="Icone do invocador" 
+                width={"128px"}
+                height={"128px"}
+                quality={100}
+              />
+            </div>
+            <h1 className="summoner__text--notFound">Invocador não foi encontrado <b>:(</b></h1>
           </div>
-          <h1 className="summoner__text">Invocador não foi encontrado <b>:(</b></h1>
         </div>
-       
         <Footer />
       </section>
     )
     case 403:
       return (
-        <section className="summoner_statics">
-        <NextSeo
-        title="Não encontrado | Summoner Statics"
-        description='Estatísticas do invocador.'
-        />
-        <Header />
-        <Search />
-        <div className="summoner">
-          <div className="summoner__icon">
-            <Image 
-              src={`/assets/imagens/not-found.png`} 
-              alt="Icone do invocador" 
-              width={"128px"}
-              height={"128px"}
-            />
+        <section className="summoner__statics">
+          <NextSeo
+          title="Ops! | Summoner Statics"
+          description='Estatísticas do invocador.'
+          />
+          <Header />
+          <Search />
+          <div className="summoner">
+            <div className="summoner__infos">
+              <div className="summoner__icon">
+                <Image 
+                  src={`/assets/imagens/poro-zzz.webp`} 
+                  alt="API não conectada" 
+                  width={"128px"}
+                  height={"128px"}
+                  quality={100}
+                />
+              </div>
+              <h1 className="summoner__text--error"><b>FALHOU</b> Aplicação não conectada à API da Rito Gomes!</h1>
+            </div>
           </div>
-          <h1 className="summoner__text">Aplicação <b>não</b> conectada à API da Riot Gomes!</h1>
-        </div>
         <Footer />
       </section>
       )
     }
   }
-
   let summonerName: string = summoner.name
   let summonerLevel: number = summoner.summonerLevel
   let summonerIcon: number = summoner.profileIconId
@@ -106,7 +112,7 @@ const Summoner = ({ summoner, summonerDetails, summonerMasterys } : summonerProp
   let summonerWinRate: number = ((summonerWins / (summonerWins + summonerLosses)) * 100)
 
   return (
-    <section className="summoner_statics">
+    <section className="summoner__statics">
       <NextSeo
       title={summonerName}
       titleTemplate="%s | Summoner Statics"
@@ -209,7 +215,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     let summonerDetails = await getSummonerDetails(summonerId)
     filterBySoloQueue = summonerDetails.filter((obj: { queueType: string }) => obj.queueType === 'RANKED_SOLO_5x5')
     let summonerChampionsMasterys = await getSummonerChampionsMasterys(summonerId) 
-    // let summonerMatchesIds = await getSummonerMatches(summonerPuuid)
+    let summonerMatchesIds = await getSummonerMatches(summonerPuuid)
     return {
       props: {
         summoner: summoner,

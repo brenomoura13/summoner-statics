@@ -14,7 +14,7 @@ const nextConfig = {
   images: {
     domains: ['ddragon.leagueoflegends.com', 'opgg-static.akamaized.net', 'raw.communitydragon.org'],
   },
-  trailingSlash: true,
+  trailingSlash: true
 }
 
 module.exports = nextConfig

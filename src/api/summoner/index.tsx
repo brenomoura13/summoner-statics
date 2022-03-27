@@ -38,7 +38,7 @@ const getSummonerMatchesDetails = async (summonerPuuid: string, matchId: string[
     const res = await fetch(`https://americas.api.riotgames.com/lol/match/v5/matches/${matchId[i]}?api_key=${apiKey}`)
     const data = await res.json()
     if (data.info.participants[i].puuid === summonerPuuid) {
-      console.log(data.info.participants[i].championName); 
+      console.log(data.info.participants[i]); 
     }
   }
 }

@@ -10,7 +10,7 @@ const Search: React.FC = () => {
           type="search" 
           className="searcher__input" 
           maxLength={16}
-          placeholder="procurar pelo invocador..."
+          placeholder="procurar por invocador..."
           onChange={event => setCurrentName(event.target.value)}
         />
         <span className="searcher__button">

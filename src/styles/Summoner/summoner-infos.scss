@@ -105,3 +105,34 @@
   margin: 0 auto;
   text-align: center;
 }
+
+.summoner__text--notFound {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: space-around;
+  flex-wrap: wrap;
+  flex-direction: column;
+  & b {
+    color: $rosa;
+    font-size: 1.5rem;
+    margin: 4%;
+    writing-mode: vertical-rl;
+  }
+}
+
+.summoner__text--error {
+  display: flex;
+  justify-content: center;
+  align-content: stretch;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-items: center;
+  & b {
+    color: $rosa;
+    font-size: 0.95rem;
+    margin: 4%;
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+  }
+}
