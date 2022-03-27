@@ -15,7 +15,7 @@ const getSummonerDetails = async (summonerId: string) => {
 const getSummonerChampionsMasterys = async (summonerId: string) => {
   const res = await fetch(`https://br1.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/${summonerId}?api_key=${apiKey}`)
   const data = await res.json()
-  var summonerMasterys = data.map((obj: { championId: number, championLevel: number, championPoints: number, lastPlayTime: number }) => {
+  let summonerMasterys = data.map((obj: { championId: number, championLevel: number, championPoints: number, lastPlayTime: number }) => {
     return {
       championId: obj.championId,
       championLevel: obj.championLevel,
@@ -34,14 +34,13 @@ const getSummonerMatches = async (summonerPuuid: string) => {
 }
 
 const getSummonerMatchesDetails = async (summonerPuuid: string, matchId: string[]) => {
-  // for (let i = 0; i < matchId.length; i++) {
-  //   const res = await fetch(`https://americas.api.riotgames.com/lol/match/v5/matches/${matchId[i]}?api_key=${apiKey}`)
-  //   const data = await res.json()
-  //   console.log(data.info.perks);
-  // }
-  const res = await fetch(`https://americas.api.riotgames.com/lol/match/v5/matches/${matchId[1]}?api_key=${apiKey}`)
-  const data = await res.json()
-  return data
+  for (let i = 0; i < matchId.length; i++) {
+    const res = await fetch(`https://americas.api.riotgames.com/lol/match/v5/matches/${matchId[i]}?api_key=${apiKey}`)
+    const data = await res.json()
+    if (data.info.participants[i].puuid === summonerPuuid) {
+      console.log(data.info.participants[i].championName); 
+    }
+  }
 }
 
 export {

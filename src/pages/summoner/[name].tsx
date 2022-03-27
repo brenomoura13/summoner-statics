@@ -193,8 +193,8 @@ const Summoner = ({ summoner, summonerDetails, summonerMasterys } : summonerProp
 export default Summoner
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  var { name } = context.params
-  var summoner = await getSummoner(name)
+  let { name } = context.params
+  let summoner = await getSummoner(name)
   if (summoner.status?.status_code) {
     return {
       props: {
@@ -202,20 +202,20 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       }
     }
   }
-  var summonerId: string = summoner.id
-  var summonerPuuid: string = summoner.puuid
-  var filterBySoloQueue = []
+  let summonerId: string = summoner.id
+  let summonerPuuid: string = summoner.puuid
+  let filterBySoloQueue = []
   if (summonerId) {
-    var summonerDetails = await getSummonerDetails(summonerId)
+    let summonerDetails = await getSummonerDetails(summonerId)
     filterBySoloQueue = summonerDetails.filter((obj: { queueType: string }) => obj.queueType === 'RANKED_SOLO_5x5')
-    var summonerChampionsMasterys = await getSummonerChampionsMasterys(summonerId) 
-    var summonerMatchesIds = await getSummonerMatches(summonerPuuid)
-  }
-  return {
-    props: {
-      summoner: summoner,
-      summonerDetails: filterBySoloQueue[0] || { tier: 'UNRANKED', rank: '', leaguePoints: 0 },
-      summonerMasterys: summonerChampionsMasterys || []
+    let summonerChampionsMasterys = await getSummonerChampionsMasterys(summonerId) 
+    // let summonerMatchesIds = await getSummonerMatches(summonerPuuid)
+    return {
+      props: {
+        summoner: summoner,
+        summonerDetails: filterBySoloQueue[0] || { tier: 'UNRANKED', rank: '', leaguePoints: 0 },
+        summonerMasterys: summonerChampionsMasterys || []
+      }
     }
   }
 }
