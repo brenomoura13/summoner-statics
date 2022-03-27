@@ -1,4 +1,4 @@
-import Document, { DocumentContext, DocumentInitialProps, Html, Head, Main, NextScript } from 'next/document'
+import Document, { DocumentContext, Html, Head, Main, NextScript } from 'next/document'
 import React from 'react'
 
 class MyDocument extends Document {
@@ -15,7 +15,8 @@ class MyDocument extends Document {
           <meta charSet='utf-8' />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin='true' />
-          <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Knewave&family=Montserrat:wght@100;400&family=Roboto:wght@100;300;400&display=swap" rel="stylesheet" />        
+          <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Knewave&family=Montserrat:wght@100;400&family=Roboto:wght@100;300;400&display=swap" rel="stylesheet" />
+          <link rel="icon" href="/assets/imagens/logo.webp" />
         </Head>
         <body>
           <Main />

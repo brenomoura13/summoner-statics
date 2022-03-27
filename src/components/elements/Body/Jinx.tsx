@@ -6,7 +6,7 @@ const Jinx: React.FC = () => {
     <figure className='jinx'>
       <div className="jinx__container">
         <Image 
-        src='/assets/imagens/jinx.png' 
+        src='/assets/imagens/jinx.webp' 
         alt='jinx'
         width={'800px'}
         height={'767px'}
