@@ -1,19 +1,19 @@
 @import './theme.scss';
 
 .rodape {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background: $branco;
-    flex-shrink: 0;
-    width: 100%;
-    height: 50px;
-    vertical-align: middle;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: $branco;
+  flex-shrink: 0;
+  width: 100%;
+  height: 50px;
+  vertical-align: middle;
 }
 
 .rodape__texto {
-    color: $preto;
-    font-size: 0.8rem;
-    text-transform: lowercase;
-    vertical-align: middle;
+  color: $preto;
+  font-size: 0.8rem;
+  text-transform: lowercase;
+  vertical-align: middle;
 }
